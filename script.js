@@ -5,15 +5,13 @@ passingGrade = (score) => {
 }
 
 addSubmission = (array, newName, newScore, newDate) => {
-    class Student {
-        constructor(newName, newScore, newDate) {
-            this.name = newName;
-            this.score = newScore;
-            this.date = newDate;
-            this.passed = passingGrade(this.score);
-        }
+    let student = {
+        name: newName,
+        score: newScore,
+        date: newDate,
+        passed: passingGrade(newScore)
     }
-    array.push(new Student(newName, newScore, newDate));
+    array.push(student);
 }
 
 //addSubmission(submissions, 'Aidan', 94, '2020-06-10');
@@ -52,5 +50,38 @@ findSubmissionByName = (array, name) => {
 //console.log(findSubmissionByName(submissions, 'Joe'));
 
 findLowestScore = (array) => {
-    
+    let lowestSub = {score: 100};
+    array.forEach(element => {
+        if (element.score < lowestSub.score) {
+            lowestSub = element;
+        }
+});
+return lowestSub;
 }
+//console.log(findLowestScore(submissions));
+
+findAverageScore = (array) => {
+    let scoreSum = 0, element;
+    for (element of array) {
+        scoreSum += element.score;
+    }
+    let average = scoreSum / array.length;
+    return average;
+}
+
+//console.log(findAverageScore(submissions));
+
+filterPassing = (array) => {
+    let passingSubs = array.filter(element => element.passed === true);
+    return passingSubs;
+}
+
+//console.log(filterPassing(submissions));
+//console.log(submissions);
+
+filter90AndAbove = (array) => {
+    let gradeASubs = array.filter(element => element.score >= 90)
+    return gradeASubs;
+}
+
+//console.log(filter90AndAbove(submissions));
