@@ -20,7 +20,7 @@ createRange =(start, end) => {
 //createRange(1,1);
 //createRange(5,0);
 
-let test = ['a','b','a','c','a', 'b'];
+let test = ['a','b','a','c', 'b'];
 
 countElements = (array) => {
     let obj = {};
@@ -28,7 +28,7 @@ countElements = (array) => {
         let arrString = [];
         arrString = array.filter((value => element === value));
         let objLength = arrString.length;
-        obj.element = objLength;
+        obj[element] = objLength;
         
     }
     console.log(obj);
