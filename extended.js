@@ -16,11 +16,21 @@ createRange =(start, end) => {
     }
     console.log(range);
 }
-createRange(6,12);
-createRange(1,1);
-createRange(5,0);
+//createRange(6,12);
+//createRange(1,1);
+//createRange(5,0);
+
+let test = ['a','b','a','c','a', 'b'];
 
 countElements = (array) => {
-    
+    let obj = {};
+    for (element of array) {
+        let arrString = [];
+        arrString = array.filter((value => element === value));
+        let objLength = arrString.length;
+        obj.element = objLength;
+        
+    }
+    console.log(obj);
 }
-
+countElements(test);
