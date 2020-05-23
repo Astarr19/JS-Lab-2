@@ -21,8 +21,8 @@ deleteSubmissionByIndex = (array, index) => {
     array.splice(index, 1);
 }
 
-//deleteSubmissionByIndex(submissions, 4);
-//console.log(submissions);
+// deleteSubmissionByIndex(submissions, 4);
+// console.log(submissions);
 
 deleteSubmissionsByName = (array, name) => {
     let selectedName = array.findIndex(array => array.name === name);
@@ -31,11 +31,13 @@ deleteSubmissionsByName = (array, name) => {
     } 
 }
 
-//deleteSubmissionsByName(submissions, 'Jill');
-//console.log(submissions);
+// deleteSubmissionsByName(submissions, 'Jill');
+// console.log(submissions);
 
 editSubmission = (array, index, score) => {
     array[index].score = score;
+    // Nicely done - I like how you've called this function 
+    // within your other function.
     array[index].passed = passingGrade(score);
 }
 
@@ -43,8 +45,10 @@ editSubmission = (array, index, score) => {
 //console.log(submissions);
 
 findSubmissionByName = (array, name) => {
-    let selectedName = array.find(array => array.name === name);
-    return selectedName;
+    // Nice use of the shorthand arrow function callback!
+    // One possibility of simplifying: Skip the intermediary
+    // variable declaration and go straight to the return:
+    return array.find(array => array.name === name);
 }
 
 //console.log(findSubmissionByName(submissions, 'Joe'));
